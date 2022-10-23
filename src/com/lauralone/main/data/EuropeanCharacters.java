@@ -1,13 +1,13 @@
-package com.lauralone.main.domain;
+package com.lauralone.main.data;
 
 import java.util.List;
 
 public class EuropeanCharacters extends Alphabet {
-
-	public EuropeanCharacters(String info) {
-		super(info);
+	
+	public EuropeanCharacters() {
+		super("European Characters", "German and English Letters, and international Symbols");
 	}
-
+	
 	@Override
 	public List<String> getLetters() {
 
@@ -15,10 +15,11 @@ public class EuropeanCharacters extends Alphabet {
 	}
 
 	@Override
-	public List<String> compoundVowels() {
+	public List<String> getCompoundVowels() {
+		
 		return List.of("ie", "ei", "eu", "äu", "au", "ch", "sch", "st");
 	}
-
+	
 	@Override
 	public List<String> getNumbers() {
 
@@ -28,6 +29,9 @@ public class EuropeanCharacters extends Alphabet {
 	@Override
 	public List<String> getSymbols() {
 
-		return List.of(".", ",", ":", "?", "!", "'", "-", "/", "(", ")", "\"", "=", "+", "x/*", "@", "&", "%", "$", "_");
+		return List.of(".", ",", ":", "?", "!", "'", "-", "/", "(", ")", "\"", "=", "+", "x/*", "@", "&", "%", "$", "_", ";");
 	}
+	
+	
+	
 }
