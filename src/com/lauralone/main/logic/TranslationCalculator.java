@@ -20,7 +20,10 @@ public class TranslationCalculator {
 		
 		var separatedCharsOfInput = getCleanInputAsList(input);
 		
-		HashMap<String, String> translationMap = getTranslationMap(morseCode.getLetters(), morseCode.getCompoundVowels(), morseCode.getNumbers(), morseCode.getSymbols());
+		HashMap<String, String> translationMap = getTranslationMap(morseCode.getLetters(),
+		                                                           morseCode.getCompoundVowels(),
+		                                                           morseCode.getNumbers(),
+		                                                           morseCode.getSymbols());
 		
 		return translateFromEuToCode(separatedCharsOfInput, translationMap);
 	}
@@ -29,7 +32,10 @@ public class TranslationCalculator {
 		
 		var separatedCharsOfInput = getCleanInputAsList(input);
 		
-		HashMap<String, String> translationMap = getTranslationMap(brailleSystem.getLetters(), brailleSystem.getCompoundVowels(), brailleSystem.getNumbers(), brailleSystem.getSymbols());
+		HashMap<String, String> translationMap = getTranslationMap(brailleSystem.getLetters(),
+		                                                           brailleSystem.getCompoundVowels(),
+		                                                           brailleSystem.getNumbers(),
+		                                                           brailleSystem.getSymbols());
 		
 		return translateFromEuToCode(separatedCharsOfInput, translationMap);
 	}
@@ -42,7 +48,7 @@ public class TranslationCalculator {
 		return List.of();
 	}
 	
-	private String translateFromEuToCode(List<String>separatedCharsOfInput, HashMap<String, String> translationMap) {
+	private String translateFromEuToCode(List<String> separatedCharsOfInput, HashMap<String, String> translationMap) {
 		
 		List<String> translatedValues = new ArrayList<>();
 		
@@ -81,11 +87,13 @@ public class TranslationCalculator {
 	private String translateFromCodeToEu() {
 		
 		// like translateFromEuToCode(), but inverted - need euKey instead of the codeValue ;)
-		
+		// thinking about a further class, to separate the types of translation (eu to code, and code to eu)
+		//maybe also another class to build the sentences(?) hm...
 		return "";
 	}
 	
 	private List<String> getSeparatedCharacters(String input) {
+		
 		List<String> separatedCharacters = new ArrayList<>();
 		
 		if(input.length() > 0) {
@@ -116,7 +124,7 @@ public class TranslationCalculator {
 		return cleanList;
 	}
 	
-	private HashMap<String, String> getTranslationMap( List<String> valueListLetters, List<String> valueListVowels, List<String> valueListNumbers, List<String> valueListSymbols) {
+	private HashMap<String, String> getTranslationMap(List<String> valueListLetters, List<String> valueListVowels, List<String> valueListNumbers, List<String> valueListSymbols) {
 		
 		var euLetters = europeanCharacters.getLetters();
 		var euCompoundVowels = europeanCharacters.getCompoundVowels();
@@ -140,7 +148,7 @@ public class TranslationCalculator {
 					translationMap.put(euListEntry, translationValue);
 				}
 			}
-
+			
 			index++;
 		}
 		

@@ -22,10 +22,12 @@ public class MorseCode extends Alphabet {
 	
 	@Override
 	public List<String> getCompoundVowels() {
+		
 		return List.of("-", "-", "-", "-", "-", "____", "-", "-");
 	}
 	
 	public HashMap<String, String> getCompoundSignals() {
+		
 		HashMap<String, String> signals = new HashMap<>();
 		signals.put("Error (or Erase)", "........");
 		signals.put("Starting Signal", "_._._");
@@ -35,6 +37,7 @@ public class MorseCode extends Alphabet {
 		signals.put("Message Received", "._.");
 		signals.put("Ready to Receive", "_._");
 		signals.put("Distress Call (or SOS)", "...___...");
+		
 		return signals;
 	}
 	
