@@ -29,12 +29,12 @@ public class TranslationManager {
 		
 		if(translationType.equals(typeMorse)) {
 			
-			// translate morse to eu
+			translationResult = codeTranslator.translateCode(input, morseCode, translationType);
 		}
 		
 		if(translationType.equals(typeBraille)) {
 			
-			// translate braille to eu
+			translationResult = codeTranslator.translateCode(input, brailleSystem, translationType);
 		}
 		
 		if(translationType.equals(typeEu)) {
@@ -44,20 +44,42 @@ public class TranslationManager {
 			translationResult = translateEuToMorseAndBraille(input);
 		}
 		
+		if(translationResult.length() < 1) {
+			return "Translation failed for : " + input;
+		}
+		
 		return translationResult;
 	}
 	
 	private String translateEuToMorseAndBraille(String input) {
 		
-		String translationResult = "";
+		String translationResult = "Translation failed for : " + input;
+		
 		if(input.length() > 0) {
+			
 			String translationToMorse = euTranslator.translateEuToMorse(input, morseCode);
-			
-			translationResult = "Code: " + morseCode.name + "\ninfo: " + morseCode.info + "\nTranslation of: " + input + "\n" + translationToMorse;
-			
 			String translationToBraille = euTranslator.translateEuToBraille(input, brailleSystem);
 			
-			translationResult = translationResult + "\n\n" + "Code: " + brailleSystem.name + "\ninfo: " + brailleSystem.info + "\nTranslation of: " + input + "\n" + translationToBraille;
+			if(translationToMorse.length() > 0 || translationToBraille.length() > 0) {
+				
+				if(translationToMorse.length() > 0) {
+					
+					// add details of morse translation
+					translationResult = "New translation:\n" + "Code: " + morseCode.name + "\ninfo: " + morseCode.info + "\nTranslation of: " + input + "\n" + translationToMorse + "\n\n";
+					
+				} else {
+					translationResult = "Translation into morsecode failed for : " + input + "\n";
+				}
+				
+				if(translationToBraille.length() > 0) {
+					
+					// add details of braille translation
+					translationResult = translationResult + "New translation:\n" + "Code: " + brailleSystem.name + "\ninfo: " + brailleSystem.info + "\nTranslation of: " + input + "\n" + translationToBraille;
+					
+				} else {
+					translationResult = translationResult + "Translation into braille system failed for : " + input;
+				}
+			}
 		}
 		
 		return translationResult;

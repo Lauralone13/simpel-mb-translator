@@ -11,7 +11,7 @@ public class EuropeanCharacters extends Alphabet {
 	@Override
 	public List<String> getLetters() {
 		
-		return List.of("A", "B", "C", "D", "E", "É", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Ä", "Ö", "Ü", "ß"); // ie, ei, eu, äu, au, ch, sch, st
+		return List.of("A", "B", "C", "D", "E", "É", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Ä", "Ö", "Ü", "ß");
 	}
 	
 	@Override

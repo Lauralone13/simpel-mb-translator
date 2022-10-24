@@ -59,19 +59,23 @@ public class EuToCodeTranslator {
 				}
 			}
 		}
-		
-		StringBuilder translation = new StringBuilder();
-		
-		for(String translatedValue : translatedValues) {
+		if(separatedCharsOfInput.size() == translatedValues.size()) {
 			
-			if(translatedValue.equals(" ")) {
-				translation.append("\n");
-			} else {
-				translation.append(translatedValue).append(" ");
+			StringBuilder translation = new StringBuilder();
+			
+			for(String translatedValue : translatedValues) {
+				
+				if(translatedValue.equals(" ")) {
+					translation.append("\n");
+				} else {
+					translation.append(translatedValue).append(" ");
+				}
 			}
+			
+			return translation.toString().trim();
 		}
 		
-		return translation.toString().trim();
+		return "";
 	}
 	
 	private HashMap<String, String> getTranslationMap(List<String> valueListLetters, List<String> valueListVowels, List<String> valueListNumbers, List<String> valueListSymbols) {
@@ -110,7 +114,11 @@ public class EuToCodeTranslator {
 		List<String> separatedCharacters = new ArrayList<>();
 		
 		if(input.length() > 0) {
-			separatedCharacters = List.of(input.split(""));
+			if(input.length() > 1) {
+				separatedCharacters = List.of(input.split(""));
+			} else {
+				separatedCharacters.add(input);
+			}
 		}
 		
 		return separatedCharacters;
