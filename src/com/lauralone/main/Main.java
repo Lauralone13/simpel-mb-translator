@@ -33,4 +33,42 @@ public class Main {
 		
 		
 	}
+	
+	/*
+last output:
+
+Code: Braille System
+info: Points
+[1] [4]
+[2] [5]
+[3] [6]
+Translation of: hello
+⠓ P125 ⠑ P15 ⠇ P123 ⠇ P123 ⠕ P135
+=========================================================
+=========================================================
+Code: Morse Code
+info: Spacing and length of the signals
+- A dash is equal to three dots.
+- The space between the signals forming the same letter is equal to one dot.
+- The space between two letters is equal to three dots.
+- The space between two words is equal to seven dots.
+Translation of: hello world !
+.... . ._.. ._.. ___
+.__ ___ ._. ._.. _..
+_._.__
+
+Code: Braille System
+info: Points
+[1] [4]
+[2] [5]
+[3] [6]
+Translation of: hello world !
+⠓ P125 ⠑ P15 ⠇ P123 ⠇ P123 ⠕ P135
+⠺ P2456 ⠕ P135 ⠗ P1235 ⠇ P123 ⠙ P145
+P235
+=========================================================
+
+Process finished with exit code 0
+
+	 */
 }
